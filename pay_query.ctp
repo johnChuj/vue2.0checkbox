@@ -1,5 +1,5 @@
 <!--
-  *付款付款查询主界面
+  *查询主界面
   *文件描述
   *Created on 2018/3/27 17:47
   *Created by John
@@ -23,7 +23,7 @@
 </style>
 <script type="text/javascript" src="/js/My97DatePicker/WdatePicker.js"></script>
 <div id="pay_query">
-    <div class="position"><img src="/img/rent/icon2.gif"/>您的当前位置：付款查询</div>
+    <div class="position"><img src="/img/rent/icon2.gif"/>您的当前位置：查询</div>
     <div class="right_main">
         <div id="flashMessage"
              style="border:0px solid #FACC4E; margin:0 auto; width:100%; text-align:center; color:red;"><?php echo $session->flash(); ?></div>
@@ -32,7 +32,7 @@
                 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tr>
                         <td height="35" width="267px;">
-                            合同编号：<input name="contractNo" v-model="contractNo"/>
+                            编号：<input name="contractNo" v-model="contractNo"/>
 
                             所属城市：<select v-model="searchCity" name="city" id="SchoolCityId" v-on:change="search();">
                                 <option value='0'>选择城市</option>
@@ -41,8 +41,8 @@
                                 </template>
                             </select>
 
-                            法律主体：<select name="company" v-model="company">
-                                <option value='0'>选择法律主体</option>
+                            主体：<select name="company" v-model="company">
+                                <option value='0'>选择主体</option>
                                 <template v-for="obj in companies">
                                     <option :value="obj.code" v-text="obj.name"></option>
                                 </template>
@@ -86,30 +86,30 @@
                 <tr>
                     <th>全选<input style="width: 52%;" type="checkbox" name="checkbox" v-model='checked'
                                  v-on:click="checkedAll"/></th>
-                    <th style="width:8%;">合同分类</th>
-                    <th style="width:4%">合同编号</th>
-                    <th style="width:4%">无形资产大类</th>
+                    <th style="width:8%;">分类</th>
+                    <th style="width:4%">编号</th>
+                    <th style="width:4%">无形大类</th>
                     <th style="width:4%">项目名称</th>
-                    <th style="width:4%">摊销类型</th>
-                    <th style="width:4%">是否一次性摊销</th>
+                    <th style="width:4%">类型</th>
+                    <th style="width:4%">是否一次性</th>
                     <th style="width:4%">所属城市</th>
                     <th style="width:4%">法律主体</th>
                     <th style="width:4%">供应商</th>
-                    <th style="width:4%">框架合同金额（￥）</th>
+                    <th style="width:4%">金额（￥）</th>
                     <th style="width:4%">金额</th>
-                    <th style="width:4%">摊销起止日</th>
-                    <th style="width:4%">摊销终止日</th>
-                    <th style="width:4%">付款金额（人民币元）</th>
+                    <th style="width:4%">起止日</th>
+                    <th style="width:4%">终止日</th>
+                    <th style="width:4%">金额（人民币元）</th>
                     <th style="width:4%">申请人</th>
                     <th style="width:4%">申请时间</th>
                     <th style="width:4%">备注</th>
                     <th style="width:4%">审核人</th>
                     <th style="width:4%">审核时间</th>
                     <th style="width:4%">付款人</th>
-                    <th style="width:4%">付款日期</th>
+                    <th style="width:4%">日期</th>
                     <th style="width:4%">是否获得发票</th>
                     <th style="width:4%">发票日期</th>
-                    <th style="width:4%">付款状态</th>
+                    <th style="width:4%">状态</th>
                 </tr>
                 <tbody>
                 <tr v-for="item in resData">
@@ -161,7 +161,7 @@
 
 <script>
     var data = {
-        test: '付款查询主界面',
+        test: '查询主界面',
         checkedNames: [],
         amortizationTypes: [],
         amortizationType: "0",
@@ -208,7 +208,7 @@
             getCitiesList(function (data) {
                 vm.cities = data.data;
             });
-            //获取法律主体列表获取
+            //获取列表获取
             getCompaniesList(function (data) {
                 vm.companies = data.data;
             });
